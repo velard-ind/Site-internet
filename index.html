@@ -11,7 +11,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css">
 </head>
 <body>
     <!-- Navigation Header -->
@@ -507,7 +506,186 @@
                 <div class="contact__map">
                     <h2 class="section__title">Présence mondiale</h2>
                     <p class="map__intro">Île-de-France, Saint-Étienne, et des relais en Europe, en Asie et en Amérique.</p>
-                    <div id="world-map" class="world-map" role="region" aria-label="Carte du monde des implantations VELARD industry"></div>
+                    <div id="world-map" class="world-map" role="region" aria-label="Carte du monde des implantations VELARD industry">
+                        <svg class="world-map__svg" viewBox="0 0 1000 500" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+                            <defs>
+                                <linearGradient id="map-ocean" x1="0" y1="0" x2="0" y2="1">
+                                    <stop offset="0%" stop-color="#0c1a2c"/>
+                                    <stop offset="100%" stop-color="#102036"/>
+                                </linearGradient>
+                            </defs>
+                            <rect width="1000" height="500" fill="url(#map-ocean)"/>
+                            <g fill="none" stroke="#3682ae">
+            <line x1="0.0" y1="0" x2="0.0" y2="500" stroke-opacity="0.10" stroke-width="0.7"/>
+            <line x1="83.3" y1="0" x2="83.3" y2="500" stroke-opacity="0.10" stroke-width="0.7"/>
+            <line x1="166.7" y1="0" x2="166.7" y2="500" stroke-opacity="0.10" stroke-width="0.7"/>
+            <line x1="250.0" y1="0" x2="250.0" y2="500" stroke-opacity="0.10" stroke-width="0.7"/>
+            <line x1="333.3" y1="0" x2="333.3" y2="500" stroke-opacity="0.10" stroke-width="0.7"/>
+            <line x1="416.7" y1="0" x2="416.7" y2="500" stroke-opacity="0.10" stroke-width="0.7"/>
+            <line x1="500.0" y1="0" x2="500.0" y2="500" stroke-opacity="0.22" stroke-width="1"/>
+            <line x1="583.3" y1="0" x2="583.3" y2="500" stroke-opacity="0.10" stroke-width="0.7"/>
+            <line x1="666.7" y1="0" x2="666.7" y2="500" stroke-opacity="0.10" stroke-width="0.7"/>
+            <line x1="750.0" y1="0" x2="750.0" y2="500" stroke-opacity="0.10" stroke-width="0.7"/>
+            <line x1="833.3" y1="0" x2="833.3" y2="500" stroke-opacity="0.10" stroke-width="0.7"/>
+            <line x1="916.7" y1="0" x2="916.7" y2="500" stroke-opacity="0.10" stroke-width="0.7"/>
+            <line x1="1000.0" y1="0" x2="1000.0" y2="500" stroke-opacity="0.10" stroke-width="0.7"/>
+            <line x1="0" y1="416.7" x2="1000" y2="416.7" stroke-opacity="0.10" stroke-width="0.7"/>
+            <line x1="0" y1="333.3" x2="1000" y2="333.3" stroke-opacity="0.10" stroke-width="0.7"/>
+            <line x1="0" y1="250.0" x2="1000" y2="250.0" stroke-opacity="0.22" stroke-width="1"/>
+            <line x1="0" y1="166.7" x2="1000" y2="166.7" stroke-opacity="0.10" stroke-width="0.7"/>
+            <line x1="0" y1="83.3" x2="1000" y2="83.3" stroke-opacity="0.10" stroke-width="0.7"/>
+            <line x1="0" y1="0.0" x2="1000" y2="0.0" stroke-opacity="0.10" stroke-width="0.7"/>
+                            </g>
+                            <g fill="#7fa8c2" stroke="#c5dce8" stroke-width="0.55" stroke-linejoin="round">
+            <path d="M278.1,226.1 L266.7,225.0 L258.3,215.3 L250.0,211.9 L240.3,205.6 L226.4,204.2 L209.7,197.2 L207.5,192.5 L193.1,184.7 L184.7,176.4 L181.9,172.2 L174.7,159.7 L165.3,154.2 L159.7,145.0 L154.7,136.7 L155.6,121.7 L153.6,115.8 L144.4,109.7 L133.3,100.0 L125.0,94.4 L119.4,88.1 L108.3,83.9 L94.4,83.3 L80.6,85.0 L72.2,90.3 L50.0,97.2 L37.5,99.4 L38.9,97.2 L61.1,88.9 L83.3,80.0 L38.9,70.8 L33.3,66.7 L38.9,61.1 L65.3,51.7 L97.2,55.6 L144.4,55.6 L208.3,58.3 L250.0,59.7 L255.6,72.2 L302.8,76.4 L320.8,83.3 L325.0,87.5 L340.3,100.0 L344.4,105.6 L344.4,106.9 L322.2,112.5 L318.1,119.4 L313.9,125.0 L316.1,126.1 L306.1,128.3 L303.3,132.5 L305.6,134.7 L294.4,137.5 L293.1,141.7 L290.3,152.2 L283.9,155.6 L275.0,163.9 L276.4,170.8 L276.9,180.0 L275.6,180.8 L272.2,177.8 L270.3,172.8 L269.4,168.9 L262.5,167.2 L251.4,168.6 L238.9,168.1 L230.0,172.8 L229.4,178.1 L228.3,188.1 L236.7,198.6 L247.2,198.9 L248.9,190.3 L256.9,190.0 L257.2,198.6 L255.0,205.6 L266.7,206.1 L268.6,215.3 L270.3,223.3 L277.8,225.0 Z"/>
+            <path d="M411.1,18.6 L466.7,25.0 L450.0,38.9 L438.9,55.6 L388.9,69.4 L376.4,83.3 L355.6,72.2 L344.4,50.0 L311.1,38.9 L300.0,31.9 L333.3,22.2 L388.9,18.1 Z"/>
+            <path d="M301.4,216.1 L311.1,220.8 L325.0,220.6 L333.3,227.8 L338.9,233.3 L355.6,233.3 L356.9,238.9 L359.7,244.4 L365.3,254.2 L402.8,266.7 L402.2,275.0 L393.1,286.1 L383.3,313.9 L365.8,320.8 L355.6,338.9 L347.8,346.9 L340.3,355.6 L308.3,391.7 L313.1,402.5 L305.6,401.4 L294.4,395.6 L290.3,388.9 L290.3,377.8 L295.8,361.1 L300.6,341.7 L304.4,300.0 L288.1,286.1 L275.0,263.9 L275.0,255.6 L277.8,247.8 L285.0,238.9 L286.1,227.8 L290.3,223.6 L293.1,219.4 Z"/>
+            <path d="M482.5,146.9 L483.9,150.3 L508.3,147.8 L527.8,146.4 L536.7,158.9 L555.6,159.7 L569.4,162.5 L590.3,162.5 L590.6,168.1 L593.9,173.1 L602.8,188.9 L609.7,206.4 L620.3,216.7 L642.2,218.1 L640.3,225.0 L625.0,244.4 L608.9,263.9 L612.5,279.2 L612.8,291.7 L591.1,321.1 L590.0,329.2 L571.1,346.7 L555.0,346.7 L550.6,338.9 L545.6,329.2 L538.9,311.1 L532.5,297.2 L536.7,272.2 L526.4,249.2 L522.2,236.7 L479.2,237.8 L475.0,235.6 L466.7,230.6 L453.6,216.7 L451.4,209.2 L452.8,191.7 L455.6,183.3 L463.9,172.2 L475.0,161.1 L483.3,150.6 Z"/>
+            <path d="M475.0,147.2 L473.6,142.5 L475.8,135.6 L475.0,129.4 L495.0,129.2 L496.7,121.7 L494.4,119.4 L486.9,115.0 L495.8,111.9 L506.7,108.1 L513.9,102.2 L523.6,101.4 L522.8,94.4 L526.4,90.3 L516.7,88.9 L513.9,86.1 L513.9,77.8 L526.4,73.6 L538.9,63.6 L569.4,52.5 L586.1,54.2 L600.0,58.3 L633.3,58.9 L652.8,51.4 L722.2,47.2 L763.9,40.3 L805.6,45.8 L855.6,47.2 L916.7,52.8 L972.2,56.9 L994.4,66.7 L995.8,70.8 L969.4,77.8 L958.3,83.3 L952.8,86.1 L950.0,94.4 L934.7,106.9 L900.0,119.4 L863.9,131.9 L855.6,141.7 L858.9,152.8 L851.1,154.4 L850.0,150.6 L851.4,145.8 L845.8,144.4 L838.3,162.5 L831.9,180.6 L816.1,188.9 L800.0,190.3 L797.2,202.8 L796.7,220.0 L791.1,226.1 L788.9,246.4 L787.2,246.1 L778.6,235.0 L779.2,211.9 L770.8,208.3 L761.7,205.6 L756.9,194.4 L754.2,188.9 L744.4,190.3 L738.9,194.4 L727.8,205.6 L723.1,213.9 L715.3,227.5 L713.3,227.8 L705.6,215.3 L704.7,206.9 L702.2,194.4 L691.7,187.8 L688.9,186.1 L685.8,181.1 L674.4,179.7 L661.1,175.0 L661.7,178.9 L656.4,179.7 L666.1,187.2 L651.4,202.8 L625.0,214.7 L620.3,214.4 L618.3,205.6 L608.6,190.8 L603.3,181.4 L596.1,172.2 L597.2,168.1 L595.0,162.5 L597.8,158.3 L600.6,148.6 L578.3,147.8 L564.4,149.4 L558.3,147.2 L555.6,140.3 L551.4,138.3 L544.4,133.9 L551.1,138.9 L545.8,143.9 L543.3,144.7 L536.9,143.9 L539.4,136.7 L530.0,131.1 L527.2,127.5 L519.4,129.4 L517.2,130.3 L508.3,129.7 L508.9,133.9 L506.1,135.0 L500.3,141.9 L494.2,148.1 L487.5,148.1 L484.4,150.0 Z"/>
+            <path d="M486.1,87.2 L491.7,87.5 L495.0,90.0 L493.1,94.4 L494.4,95.0 L497.8,98.3 L500.6,101.9 L504.7,103.3 L503.9,107.2 L500.6,109.4 L485.6,111.1 L488.1,107.8 L486.4,106.7 L488.3,104.4 L487.5,101.7 L490.0,98.3 L482.8,92.2 L479.7,90.0 L486.1,87.2 Z"/>
+            <path d="M482.8,96.4 L478.3,96.7 L477.2,98.6 L472.8,102.2 L472.2,106.7 L477.2,107.2 L482.2,105.3 L483.3,101.9 L483.3,99.7 L482.8,96.4 Z"/>
+            <path d="M459.7,65.3 L448.6,66.7 L433.9,69.4 L437.5,72.8 L448.6,73.9 L459.7,72.2 L462.5,68.1 Z"/>
+            <path d="M894.2,123.6 L902.8,127.8 L905.0,129.7 L897.8,133.3 L892.8,135.0 L888.9,138.3 L891.7,143.6 L891.4,150.8 L888.3,153.1 L875.0,153.9 L877.2,156.9 L864.7,162.8 L860.3,158.1 L863.6,155.6 L868.1,154.4 L869.4,151.4 L880.6,145.8 L888.9,137.5 L889.7,134.7 L892.8,129.4 Z"/>
+            <path d="M636.7,283.3 L639.7,291.1 L630.8,319.4 L625.3,321.1 L621.1,313.9 L623.6,294.4 L636.1,284.2 Z"/>
+            <path d="M863.9,283.9 L880.0,282.8 L891.7,284.4 L903.3,291.7 L906.7,302.8 L925.3,320.3 L926.4,328.3 L923.6,340.0 L916.7,354.2 L906.7,356.7 L891.4,355.6 L877.8,347.2 L826.4,346.9 L823.6,347.5 L820.8,338.9 L814.4,321.1 L816.7,310.8 L829.2,306.7 L844.4,295.6 L851.4,289.7 L858.3,291.7 Z"/>
+            <path d="M980.6,345.6 L985.6,350.0 L995.3,354.4 L988.3,365.0 L983.3,358.3 L983.6,352.2 Z"/>
+            <path d="M979.7,362.5 L983.9,365.8 L970.0,379.7 L962.5,377.2 L976.4,366.1 Z"/>
+            <path d="M902.2,363.1 L911.9,363.9 L907.8,371.1 L905.0,370.0 Z"/>
+            <path d="M866.7,251.1 L894.4,258.3 L918.9,278.3 L895.8,279.4 L880.6,273.6 L863.9,253.6 Z"/>
+            <path d="M825.0,230.6 L831.1,241.7 L822.2,261.7 L802.8,247.8 L804.2,244.4 L825.0,230.6 Z"/>
+            <path d="M764.7,234.4 L770.8,234.7 L793.9,266.4 L790.3,266.1 L770.6,247.2 Z"/>
+            <path d="M264.2,185.6 L277.2,185.6 L294.2,194.4 L284.7,195.0 L264.2,189.4 Z"/>
+            <path d="M300.8,194.7 L310.3,195.6 L301.7,201.1 L298.9,198.9 Z"/>
+            <path d="M722.8,222.8 L727.2,230.6 L723.9,233.6 L721.4,227.8 Z"/>
+            <path d="M837.5,179.7 L835.3,188.9 L833.3,187.2 L836.1,180.0 Z"/>
+            <path d="M835.6,198.6 L844.4,211.1 L850.6,233.3 L838.9,231.9 L830.0,221.4 L832.8,205.6 Z"/>
+            <path d="M533.3,27.8 L555.6,31.9 L544.4,37.5 L527.8,33.3 Z"/>
+            <path d="M27.8,66.7 L22.2,72.2 L29.2,68.1 L37.5,61.1 L25.0,65.3 Z"/>
+                            </g>
+                        </svg>
+                        <ul class="world-map__pins">
+                        <li>
+                            <button type="button" class="world-map__pin world-map__pin--main world-map__pin--n" style="left:50.65%;top:22.86%" aria-label="Île-de-France">
+                                <span class="world-map__label">Île-de-France</span>
+                            </button>
+                        </li>
+                        <li>
+                            <button type="button" class="world-map__pin world-map__pin--main world-map__pin--s" style="left:51.22%;top:24.76%" aria-label="Saint-Étienne">
+                                <span class="world-map__label">Saint-Étienne</span>
+                            </button>
+                        </li>
+                        <li>
+                            <button type="button" class="world-map__pin world-map__pin--main world-map__pin--w" style="left:88.79%;top:30.18%" aria-label="Tokyo">
+                                <span class="world-map__label">Tokyo</span>
+                            </button>
+                        </li>
+                        <li>
+                            <button type="button" class="world-map__pin world-map__pin--main world-map__pin--e" style="left:17.15%;top:31.08%" aria-label="Los Angeles">
+                                <span class="world-map__label">Los Angeles</span>
+                            </button>
+                        </li>
+                        <li>
+                            <button type="button" class="world-map__pin world-map__pin--main world-map__pin--n" style="left:29.44%;top:27.38%" aria-label="New York">
+                                <span class="world-map__label">New York</span>
+                            </button>
+                        </li>
+                        <li>
+                            <button type="button" class="world-map__pin world-map__pin--main world-map__pin--e" style="left:53.72%;top:20.82%" aria-label="Berlin">
+                                <span class="world-map__label">Berlin</span>
+                            </button>
+                        </li>
+                        <li>
+                            <button type="button" class="world-map__pin world-map__pin--main world-map__pin--w" style="left:49.96%;top:21.38%" aria-label="Londres">
+                                <span class="world-map__label">Londres</span>
+                            </button>
+                        </li>
+                        <li>
+                            <button type="button" class="world-map__pin world-map__pin--main world-map__pin--n" style="left:53.49%;top:19.06%" aria-label="Copenhague">
+                                <span class="world-map__label">Copenhague</span>
+                            </button>
+                        </li>
+                        <li>
+                            <button type="button" class="world-map__pin world-map__pin--dot" style="left:29.56%;top:24.72%" aria-label="Montréal">
+                                <span class="world-map__label">Montréal</span>
+                            </button>
+                        </li>
+                        <li>
+                            <button type="button" class="world-map__pin world-map__pin--dot" style="left:30.26%;top:26.46%" aria-label="Boston">
+                                <span class="world-map__label">Boston</span>
+                            </button>
+                        </li>
+                        <li>
+                            <button type="button" class="world-map__pin world-map__pin--dot" style="left:22.46%;top:39.20%" aria-label="Mexico">
+                                <span class="world-map__label">Mexico</span>
+                            </button>
+                        </li>
+                        <li>
+                            <button type="button" class="world-map__pin world-map__pin--dot" style="left:37.05%;top:63.08%" aria-label="São Paulo">
+                                <span class="world-map__label">São Paulo</span>
+                            </button>
+                        </li>
+                        <li>
+                            <button type="button" class="world-map__pin world-map__pin--dot" style="left:30.37%;top:68.58%" aria-label="Santiago">
+                                <span class="world-map__label">Santiago</span>
+                            </button>
+                        </li>
+                        <li>
+                            <button type="button" class="world-map__pin world-map__pin--dot" style="left:48.97%;top:27.54%" aria-label="Madrid">
+                                <span class="world-map__label">Madrid</span>
+                            </button>
+                        </li>
+                        <li>
+                            <button type="button" class="world-map__pin world-map__pin--dot" style="left:52.55%;top:24.74%" aria-label="Milan">
+                                <span class="world-map__label">Milan</span>
+                            </button>
+                        </li>
+                        <li>
+                            <button type="button" class="world-map__pin world-map__pin--dot" style="left:55.02%;top:17.04%" aria-label="Stockholm">
+                                <span class="world-map__label">Stockholm</span>
+                            </button>
+                        </li>
+                        <li>
+                            <button type="button" class="world-map__pin world-map__pin--dot" style="left:65.35%;top:36.00%" aria-label="Dubaï">
+                                <span class="world-map__label">Dubaï</span>
+                            </button>
+                        </li>
+                        <li>
+                            <button type="button" class="world-map__pin world-map__pin--dot" style="left:57.79%;top:64.56%" aria-label="Johannesburg">
+                                <span class="world-map__label">Johannesburg</span>
+                            </button>
+                        </li>
+                        <li>
+                            <button type="button" class="world-map__pin world-map__pin--dot" style="left:60.23%;top:50.72%" aria-label="Nairobi">
+                                <span class="world-map__label">Nairobi</span>
+                            </button>
+                        </li>
+                        <li>
+                            <button type="button" class="world-map__pin world-map__pin--dot" style="left:70.24%;top:39.40%" aria-label="Mumbai">
+                                <span class="world-map__label">Mumbai</span>
+                            </button>
+                        </li>
+                        <li>
+                            <button type="button" class="world-map__pin world-map__pin--dot" style="left:78.84%;top:49.24%" aria-label="Singapour">
+                                <span class="world-map__label">Singapour</span>
+                            </button>
+                        </li>
+                        <li>
+                            <button type="button" class="world-map__pin world-map__pin--dot" style="left:85.27%;top:29.12%" aria-label="Séoul">
+                                <span class="world-map__label">Séoul</span>
+                            </button>
+                        </li>
+                        <li>
+                            <button type="button" class="world-map__pin world-map__pin--dot" style="left:92.00%;top:68.82%" aria-label="Sydney">
+                                <span class="world-map__label">Sydney</span>
+                            </button>
+                        </li>
+                        <li>
+                            <button type="button" class="world-map__pin world-map__pin--dot" style="left:15.80%;top:22.62%" aria-label="Vancouver">
+                                <span class="world-map__label">Vancouver</span>
+                            </button>
+                        </li>
+                        </ul>
+                    </div>
                     <div class="map__legend">
                         <span class="map__legend-item"><span class="map-swatch map-swatch--main"></span> Sites principaux</span>
                         <span class="map__legend-item"><span class="map-swatch map-swatch--dot"></span> Relais internationaux</span>
@@ -556,7 +734,6 @@
         </div>
     </footer>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
     <script src="app.js"></script>
 </body>
 </html>
