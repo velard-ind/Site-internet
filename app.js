@@ -129,6 +129,12 @@ document.addEventListener('DOMContentLoaded', function() {
             
             // Analytics ou tracking (simulation)
             trackPageView(pageId);
+
+            if (pageId === 'contact') {
+                window.requestAnimationFrame(function() {
+                    initWorldMap();
+                });
+            }
         }
     }
 
@@ -189,34 +195,90 @@ document.addEventListener('DOMContentLoaded', function() {
             return;
         }
 
-        // Simulation de l'envoi (dans un vrai projet, ceci ferait appel à un backend)
-        simulateFormSubmission(data);
+        if (formData.get('_honey')) {
+            showNotification('Votre demande a été envoyée à contact@velardindustry.com. Nous vous recontacterons rapidement.', 'success');
+            contactForm.reset();
+            return;
+        }
+
+        sendQuoteRequest(data);
     }
 
-    // Simulation de l'envoi du formulaire
-    function simulateFormSubmission(data) {
-        // Afficher un indicateur de chargement
+    function sendQuoteRequest(data) {
         const submitButton = contactForm.querySelector('button[type="submit"]');
         const originalText = submitButton.textContent;
         submitButton.textContent = 'Envoi en cours...';
         submitButton.disabled = true;
 
-        // Simuler un délai d'envoi
-        setTimeout(() => {
-            // Réinitialiser le bouton
-            submitButton.textContent = originalText;
-            submitButton.disabled = false;
+        const sectorLabels = {
+            spatial: 'Spatial',
+            aeronautique: 'Aéronautique',
+            defense: 'Défense',
+            autre: 'Autre'
+        };
+        const serviceLabels = {
+            'ac-dc': 'Conversion AC-DC',
+            'dc-dc': 'Conversion DC-DC',
+            etudes: 'Études et conception',
+            tests: 'Tests et validation',
+            support: 'Support technique'
+        };
 
-            // Afficher un message de succès
-            showNotification('Votre demande a été envoyée avec succès ! Nous vous recontacterons rapidement.', 'success');
-            
-            // Réinitialiser le formulaire
-            contactForm.reset();
-            
-            // Log des données pour démonstration (à supprimer en production)
-            console.log('Données du formulaire:', data);
-            
-        }, 2000);
+        const payload = {
+            _subject: 'Demande de devis — VELARD industry',
+            _template: 'table',
+            _captcha: 'false',
+            _replyto: data.email,
+            Entreprise: data.company,
+            Nom: data.name,
+            Email: data.email,
+            Telephone: data.phone || 'Non renseigné',
+            Secteur: sectorLabels[data.sector] || 'Non renseigné',
+            Service: serviceLabels[data.service] || 'Non renseigné',
+            Message: data.message
+        };
+
+        fetch('https://formsubmit.co/ajax/contact@velardindustry.com', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'Accept': 'application/json'
+            },
+            body: JSON.stringify(payload)
+        })
+            .then(function(response) {
+                return response.json().then(function(result) {
+                    if (!response.ok) {
+                        throw new Error('send-failed');
+                    }
+                    return result;
+                });
+            })
+            .then(function(result) {
+                if (result && result.success === false) {
+                    throw new Error('send-failed');
+                }
+                showNotification('Votre demande a été envoyée à contact@velardindustry.com. Nous vous recontacterons rapidement.', 'success');
+                contactForm.reset();
+            })
+            .catch(function() {
+                const subject = encodeURIComponent('Demande de devis — VELARD industry');
+                const body = encodeURIComponent(
+                    'Entreprise : ' + data.company + '\n' +
+                    'Nom : ' + data.name + '\n' +
+                    'Email : ' + data.email + '\n' +
+                    'Téléphone : ' + (data.phone || 'Non renseigné') + '\n' +
+                    'Secteur : ' + (sectorLabels[data.sector] || 'Non renseigné') + '\n' +
+                    'Service : ' + (serviceLabels[data.service] || 'Non renseigné') + '\n\n' +
+                    data.message
+                );
+                window.location.href = 'mailto:contact@velardindustry.com?subject=' + subject + '&body=' + body;
+                showNotification('Ouverture de votre messagerie pour envoyer la demande à contact@velardindustry.com.', 'success');
+            })
+            .finally(function() {
+                submitButton.textContent = originalText;
+                submitButton.disabled = false;
+            });
     }
 
     // Validation d'email
@@ -325,11 +387,107 @@ document.addEventListener('DOMContentLoaded', function() {
         console.log(`Page vue: ${pageId}`);
     }
 
+    let worldMap;
+
+    function initWorldMap() {
+        const mapEl = document.getElementById('world-map');
+        if (!mapEl || typeof L === 'undefined') {
+            return;
+        }
+
+        if (worldMap) {
+            worldMap.invalidateSize();
+            return;
+        }
+
+        const mainIcon = L.divIcon({
+            className: 'map-pin map-pin--main',
+            iconSize: [16, 16],
+            iconAnchor: [8, 8],
+            popupAnchor: [0, -10]
+        });
+        const presenceIcon = L.divIcon({
+            className: 'map-pin map-pin--dot',
+            iconSize: [9, 9],
+            iconAnchor: [4, 4],
+            popupAnchor: [0, -8]
+        });
+
+        const mainLocations = [
+            { name: 'Île-de-France', coords: [48.8566, 2.3522] },
+            { name: 'Saint-Étienne', coords: [45.4397, 4.3872] },
+            { name: 'Tokyo', coords: [35.6762, 139.6503] },
+            { name: 'Los Angeles', coords: [34.0522, -118.2437] },
+            { name: 'New York', coords: [40.7128, -74.006] },
+            { name: 'Berlin', coords: [52.52, 13.405] },
+            { name: 'Londres', coords: [51.5074, -0.1278] },
+            { name: 'Copenhague', coords: [55.6761, 12.5683] }
+        ];
+
+        const presenceLocations = [
+            { name: 'Montréal', coords: [45.5017, -73.5673] },
+            { name: 'Boston', coords: [42.3601, -71.0589] },
+            { name: 'Mexico', coords: [19.4326, -99.1332] },
+            { name: 'São Paulo', coords: [-23.5505, -46.6333] },
+            { name: 'Santiago', coords: [-33.4489, -70.6693] },
+            { name: 'Madrid', coords: [40.4168, -3.7038] },
+            { name: 'Milan', coords: [45.4642, 9.19] },
+            { name: 'Stockholm', coords: [59.3293, 18.0686] },
+            { name: 'Dubaï', coords: [25.2048, 55.2708] },
+            { name: 'Johannesburg', coords: [-26.2041, 28.0473] },
+            { name: 'Nairobi', coords: [-1.2921, 36.8219] },
+            { name: 'Mumbai', coords: [19.076, 72.8777] },
+            { name: 'Singapour', coords: [1.3521, 103.8198] },
+            { name: 'Séoul', coords: [37.5665, 126.978] },
+            { name: 'Sydney', coords: [-33.8688, 151.2093] },
+            { name: 'Vancouver', coords: [49.2827, -123.1207] }
+        ];
+
+        worldMap = L.map(mapEl, {
+            worldCopyJump: true,
+            minZoom: 2,
+            maxZoom: 8,
+            zoomControl: true,
+            scrollWheelZoom: false
+        }).setView([25, 12], 2);
+
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '&copy; OpenStreetMap',
+            maxZoom: 8
+        }).addTo(worldMap);
+
+        worldMap.on('click', function() {
+            worldMap.scrollWheelZoom.enable();
+        });
+        worldMap.on('mouseout', function() {
+            worldMap.scrollWheelZoom.disable();
+        });
+
+        mainLocations.forEach(function(place) {
+            L.marker(place.coords, { icon: mainIcon })
+                .addTo(worldMap)
+                .bindPopup('<div class="map-popup">' + place.name + '</div>');
+        });
+
+        presenceLocations.forEach(function(place) {
+            L.marker(place.coords, { icon: presenceIcon, opacity: 0.9 })
+                .addTo(worldMap)
+                .bindPopup('<div class="map-popup">' + place.name + '</div>');
+        });
+
+        window.setTimeout(function() {
+            worldMap.invalidateSize();
+        }, 200);
+    }
+
     // Gestion du redimensionnement de la fenêtre
     window.addEventListener('resize', function() {
         // Fermer le menu mobile si la fenêtre devient plus large
         if (window.innerWidth > 768 && navMenu.classList.contains('active')) {
             toggleMobileMenu();
+        }
+        if (worldMap && currentPage === 'contact') {
+            worldMap.invalidateSize();
         }
     });
 

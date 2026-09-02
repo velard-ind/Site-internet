@@ -11,6 +11,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css">
 </head>
 <body>
     <!-- Navigation Header -->
@@ -451,7 +452,12 @@
 
                     <div class="contact__form">
                         <h2>Demande de devis</h2>
-                        <form id="contact-form" class="form">
+                        <form id="contact-form" class="form" action="https://formsubmit.co/contact@velardindustry.com" method="POST">
+                            <input type="hidden" name="_subject" value="Demande de devis — VELARD industry">
+                            <input type="hidden" name="_template" value="table">
+                            <input type="hidden" name="_captcha" value="false">
+                            <input type="hidden" name="_next" value="https://www.velardindustry.com/#contact">
+                            <input type="text" name="_honey" class="form-honeypot" tabindex="-1" autocomplete="off" aria-hidden="true">
                             <div class="form-group">
                                 <label for="company" class="form-label">Entreprise *</label>
                                 <input type="text" id="company" name="company" class="form-control" required>
@@ -498,11 +504,13 @@
                     </div>
                 </div>
                 
-                <!-- Map placeholder -->
                 <div class="contact__map">
-                    <div class="map-placeholder">
-                        <i class="fas fa-map-marked-alt"></i>
-                        <p>Carte Google Maps - À intégrer</p>
+                    <h2 class="section__title">Présence mondiale</h2>
+                    <p class="map__intro">Île-de-France, Saint-Étienne, et des relais en Europe, en Asie et en Amérique.</p>
+                    <div id="world-map" class="world-map" role="region" aria-label="Carte du monde des implantations VELARD industry"></div>
+                    <div class="map__legend">
+                        <span class="map__legend-item"><span class="map-swatch map-swatch--main"></span> Sites principaux</span>
+                        <span class="map__legend-item"><span class="map-swatch map-swatch--dot"></span> Relais internationaux</span>
                     </div>
                 </div>
             </div>
@@ -548,6 +556,7 @@
         </div>
     </footer>
 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
     <script src="app.js"></script>
 </body>
 </html>

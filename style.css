@@ -1320,28 +1320,112 @@ body {
   padding: var(--space-24);
   border-radius: var(--radius-lg);
   border: 1px solid var(--color-border);
+  position: relative;
+}
+
+.form-honeypot {
+  position: absolute;
+  left: -10000px;
+  top: auto;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  opacity: 0;
 }
 
 .contact__map {
   margin-top: var(--space-32);
 }
 
-.map-placeholder {
-  background: var(--color-bg-3);
-  height: 300px;
-  border-radius: var(--radius-lg);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+.map__intro {
+  text-align: center;
   color: var(--velard-gray);
-  border: 2px dashed var(--color-border);
+  margin: calc(var(--space-16) * -1) auto var(--space-20);
+  max-width: 640px;
 }
 
-.map-placeholder i {
-  font-size: 3rem;
-  margin-bottom: var(--space-12);
-  color: var(--velard-blue);
+.world-map {
+  height: 460px;
+  width: 100%;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  border: 1px solid var(--color-border);
+  background: #d6e4ee;
+  z-index: 0;
+}
+
+.world-map .leaflet-div-icon {
+  background: transparent;
+  border: none;
+}
+
+.map-pin {
+  border-radius: 50%;
+  box-sizing: border-box;
+}
+
+.map-pin--main {
+  width: 16px;
+  height: 16px;
+  background: var(--velard-blue);
+  border: 2px solid #ffffff;
+  box-shadow: 0 0 0 3px rgba(54, 130, 174, 0.35), 0 2px 8px rgba(16, 32, 54, 0.35);
+}
+
+.map-pin--dot {
+  width: 9px;
+  height: 9px;
+  background: var(--velard-navy);
+  border: 2px solid #ffffff;
+  opacity: 0.85;
+  box-shadow: 0 1px 4px rgba(16, 32, 54, 0.3);
+}
+
+.map-popup {
+  font-family: var(--font-family-base);
+  color: var(--velard-navy);
+  font-weight: 600;
+}
+
+.map__legend {
+  display: flex;
+  justify-content: center;
+  gap: var(--space-24);
+  flex-wrap: wrap;
+  margin-top: var(--space-16);
+  color: var(--velard-gray);
+  font-size: var(--font-size-sm);
+}
+
+.map__legend-item {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-8);
+}
+
+.map-swatch {
+  display: inline-block;
+  border-radius: 50%;
+  border: 2px solid #ffffff;
+  box-shadow: 0 0 0 1px rgba(16, 32, 54, 0.15);
+}
+
+.map-swatch--main {
+  width: 14px;
+  height: 14px;
+  background: var(--velard-blue);
+}
+
+.map-swatch--dot {
+  width: 9px;
+  height: 9px;
+  background: var(--velard-navy);
+}
+
+@media (max-width: 768px) {
+  .world-map {
+    height: 340px;
+  }
 }
 
 /* Footer */
