@@ -265,9 +265,9 @@ document.addEventListener('DOMContentLoaded', function() {
         // Styles selon le type
         if (type === 'success') {
             Object.assign(notification.style, {
-                backgroundColor: 'rgba(33, 128, 141, 0.1)',
-                color: '#218085',
-                border: '1px solid rgba(33, 128, 141, 0.2)'
+                backgroundColor: 'rgba(54, 130, 174, 0.12)',
+                color: '#102036',
+                border: '1px solid rgba(54, 130, 174, 0.28)'
             });
         } else if (type === 'error') {
             Object.assign(notification.style, {
@@ -412,7 +412,7 @@ document.addEventListener('DOMContentLoaded', function() {
         .btn:focus-visible,
         .form-control:focus-visible,
         .nav__link:focus-visible {
-            outline: 2px solid #3182ce;
+            outline: 2px solid #3682ae;
             outline-offset: 2px;
         }
     `;
