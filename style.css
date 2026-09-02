@@ -740,22 +740,53 @@ select.form-control {
 /* END PERPLEXITY DESIGN SYSTEM */
 /* Styles spécifiques pour VELARD industry */
 
-/* Variables personnalisées pour VELARD */
+/* Couleurs extraites du logo officiel : marine #102036, bleu acier #3682ae */
 :root {
-  --velard-navy: #1a365d;
-  --velard-blue: #3182ce;
-  --velard-light-blue: #63b3ed;
-  --velard-gray: #6b7280;
-  --velard-light-gray: #f7fafc;
+  --velard-navy: #102036;
+  --velard-navy-rgb: 16, 32, 54;
+  --velard-blue: #3682ae;
+  --velard-blue-rgb: 54, 130, 174;
+  --velard-blue-hover: #2c6d93;
+  --velard-blue-light: #5aa0c4;
+  --velard-gray: #5a6b7a;
+  --velard-light-gray: #f3f6f9;
+  --velard-mist: #e6eef3;
 }
 
-/* Override des couleurs du design system pour correspondre à VELARD */
+/* Palette sémantique alignée sur l'identité VELARD */
 :root {
-  --color-primary: var(--velard-blue);
-  --color-primary-hover: var(--velard-navy);
-  --color-primary-active: var(--velard-navy);
+  --color-background: var(--velard-light-gray);
+  --color-surface: #ffffff;
   --color-text: var(--velard-navy);
   --color-text-secondary: var(--velard-gray);
+  --color-primary: var(--velard-blue);
+  --color-primary-hover: var(--velard-blue-hover);
+  --color-primary-active: var(--velard-navy);
+  --color-secondary: rgba(var(--velard-navy-rgb), 0.06);
+  --color-secondary-hover: rgba(var(--velard-navy-rgb), 0.1);
+  --color-secondary-active: rgba(var(--velard-navy-rgb), 0.14);
+  --color-border: rgba(var(--velard-navy-rgb), 0.12);
+  --color-btn-primary-text: #ffffff;
+  --color-card-border: rgba(var(--velard-navy-rgb), 0.1);
+  --color-card-border-inner: rgba(var(--velard-navy-rgb), 0.1);
+  --color-focus-ring: rgba(var(--velard-blue-rgb), 0.35);
+  --color-bg-1: rgba(var(--velard-blue-rgb), 0.08);
+  --color-bg-2: rgba(var(--velard-navy-rgb), 0.04);
+  --color-bg-3: rgba(var(--velard-blue-rgb), 0.06);
+  --color-success: var(--velard-blue);
+  --color-success-rgb: var(--velard-blue-rgb);
+  --font-family-base: "Inter", "Segoe UI", -apple-system, BlinkMacSystemFont, Roboto, sans-serif;
+}
+
+html {
+  color-scheme: light;
+  background-color: var(--color-background);
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: var(--color-background);
 }
 
 /* Layout principal */
@@ -766,7 +797,7 @@ select.form-control {
 .page {
   display: none;
   min-height: calc(100vh - 120px);
-  padding-top: 80px;
+  padding-top: 88px;
 }
 
 .page.active {
@@ -793,9 +824,10 @@ select.form-control {
   top: 0;
   left: 0;
   width: 100%;
-  background-color: var(--color-surface);
+  background-color: rgba(255, 255, 255, 0.96);
+  backdrop-filter: blur(10px);
   border-bottom: 1px solid var(--color-border);
-  box-shadow: var(--shadow-sm);
+  box-shadow: 0 1px 0 rgba(16, 32, 54, 0.04);
   z-index: 1000;
 }
 
@@ -803,20 +835,26 @@ select.form-control {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: var(--space-16) var(--space-16);
-  height: 70px;
+  padding: var(--space-12) var(--space-16);
+  height: 80px;
 }
 
-.nav__brand .nav__logo {
-  color: var(--velard-navy);
-  font-size: var(--font-size-2xl);
-  font-weight: var(--font-weight-bold);
-  margin: 0;
+.nav__brand-link {
+  display: flex;
+  align-items: center;
+  line-height: 0;
+}
+
+.nav__logo-img {
+  height: 46px;
+  width: auto;
+  max-width: 220px;
+  display: block;
 }
 
 .nav__list {
   display: flex;
-  gap: var(--space-32);
+  gap: var(--space-8);
   margin: 0;
   padding: 0;
   list-style: none;
@@ -846,38 +884,55 @@ select.form-control {
 
 /* Section Hero */
 .hero {
-  background: linear-gradient(135deg, var(--velard-light-gray) 0%, rgba(49, 130, 206, 0.1) 100%);
-  padding: var(--space-32) 0;
-  min-height: 60vh;
+  position: relative;
+  background-color: var(--velard-navy);
+  background-image:
+    linear-gradient(135deg, rgba(16, 32, 54, 0.92) 0%, rgba(16, 32, 54, 0.72) 48%, rgba(54, 130, 174, 0.62) 100%),
+    url("assets/images/hero.jpg");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  padding: 72px 0 80px;
+  min-height: 70vh;
   display: flex;
   align-items: center;
 }
 
 .hero__content {
   text-align: center;
-  max-width: 800px;
+  max-width: 820px;
   margin: 0 auto;
 }
 
+.hero__logo {
+  height: 56px;
+  width: auto;
+  max-width: min(360px, 86vw);
+  margin: 0 auto 28px;
+  display: block;
+  filter: drop-shadow(0 8px 18px rgba(0, 0, 0, 0.25));
+}
+
 .hero__title {
-  font-size: clamp(2rem, 5vw, 4rem);
-  color: var(--velard-navy);
+  font-size: clamp(1.6rem, 3.4vw, 2.5rem);
+  color: #ffffff;
   margin-bottom: var(--space-16);
   font-weight: var(--font-weight-bold);
+  line-height: 1.25;
 }
 
 .hero__subtitle {
   font-size: var(--font-size-xl);
-  color: var(--velard-blue);
+  color: var(--velard-blue-light);
   margin-bottom: var(--space-16);
   font-weight: var(--font-weight-semibold);
 }
 
 .hero__description {
   font-size: var(--font-size-lg);
-  color: var(--velard-gray);
+  color: rgba(255, 255, 255, 0.86);
   margin-bottom: var(--space-32);
-  max-width: 600px;
+  max-width: 620px;
   margin-left: auto;
   margin-right: auto;
 }
@@ -889,15 +944,25 @@ select.form-control {
   flex-wrap: wrap;
 }
 
+.btn--on-dark {
+  border-color: rgba(255, 255, 255, 0.75);
+  color: #ffffff;
+}
+
+.btn--on-dark:hover {
+  background: rgba(255, 255, 255, 0.12);
+  color: #ffffff;
+}
+
 /* Section Expertise */
 .expertise {
-  padding: var(--space-32) 0;
+  padding: 56px 0;
   background-color: var(--color-background);
 }
 
 .expertise__grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: var(--space-24);
   margin-top: var(--space-32);
 }
@@ -911,10 +976,34 @@ select.form-control {
   transform: translateY(-4px);
 }
 
+.expertise__media,
+.sector__media {
+  overflow: hidden;
+  background: var(--velard-navy);
+}
+
+.expertise__media {
+  height: 180px;
+}
+
+.expertise__media img,
+.sector__media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.45s ease;
+}
+
+.expertise__card:hover .expertise__media img,
+.sector__card:hover .sector__media img {
+  transform: scale(1.04);
+}
+
 .expertise__icon {
-  font-size: 3rem;
+  font-size: 2rem;
   color: var(--velard-blue);
-  margin-bottom: var(--space-16);
+  margin-bottom: var(--space-12);
 }
 
 .expertise__card h3 {
@@ -951,7 +1040,7 @@ select.form-control {
 
 /* Section Services Preview */
 .services-preview {
-  padding: var(--space-32) 0;
+  padding: 56px 0;
   background: var(--color-bg-1);
 }
 
@@ -995,7 +1084,7 @@ select.form-control {
 
 /* Section Why Choose */
 .why-choose {
-  padding: var(--space-32) 0;
+  padding: 56px 0;
   background-color: var(--color-surface);
 }
 
@@ -1123,13 +1212,26 @@ select.form-control {
 /* Page Secteurs */
 .sectors__content {
   display: grid;
-  gap: var(--space-32);
-  max-width: 1000px;
+  grid-template-columns: 1fr;
+  gap: var(--space-24);
+  max-width: 1180px;
   margin: 0 auto;
 }
 
+@media (min-width: 900px) {
+  .sectors__content {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
 .sector__card {
-  border-left: 4px solid var(--velard-blue);
+  border-top: 4px solid var(--velard-blue);
+  display: flex;
+  flex-direction: column;
+}
+
+.sector__media {
+  height: 200px;
 }
 
 .sector__header {
@@ -1140,7 +1242,7 @@ select.form-control {
 }
 
 .sector__icon {
-  font-size: 3rem;
+  font-size: 2rem;
   color: var(--velard-blue);
 }
 
@@ -1257,6 +1359,14 @@ select.form-control {
   margin-bottom: var(--space-24);
 }
 
+.footer__logo {
+  height: 42px;
+  width: auto;
+  max-width: 240px;
+  display: block;
+  margin-bottom: var(--space-16);
+}
+
 .footer__info h3 {
   color: var(--color-white);
   margin-bottom: var(--space-12);
@@ -1277,7 +1387,7 @@ select.form-control {
 }
 
 .footer__contact i {
-  color: var(--velard-light-blue);
+  color: var(--velard-blue-light);
 }
 
 .footer__links h4,
@@ -1303,7 +1413,7 @@ select.form-control {
 }
 
 .footer__links a:hover {
-  color: var(--velard-light-blue);
+  color: var(--velard-blue-light);
 }
 
 .footer__bottom {
@@ -1313,14 +1423,33 @@ select.form-control {
   color: rgba(255, 255, 255, 0.6);
 }
 
+.footer__credits {
+  margin-top: var(--space-8);
+  font-size: var(--font-size-sm);
+  color: rgba(255, 255, 255, 0.45);
+}
+
 /* Responsive Design */
 @media (max-width: 768px) {
+  .nav {
+    height: 72px;
+  }
+
+  .nav__logo-img {
+    height: 36px;
+    max-width: 170px;
+  }
+
+  .page {
+    padding-top: 72px;
+  }
+
   .nav__menu {
     position: fixed;
-    top: 70px;
+    top: 72px;
     left: -100%;
     width: 100%;
-    height: calc(100vh - 70px);
+    height: calc(100vh - 72px);
     background-color: var(--color-surface);
     transition: left var(--duration-normal) var(--ease-standard);
     padding: var(--space-24);
@@ -1338,6 +1467,10 @@ select.form-control {
 
   .nav__toggle {
     display: block;
+  }
+
+  .hero__logo {
+    height: 40px;
   }
 
   .hero__actions {
@@ -1373,6 +1506,15 @@ select.form-control {
     text-align: center;
   }
 
+  .footer__logo {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .footer__contact p {
+    justify-content: center;
+  }
+
   .page__title {
     font-size: var(--font-size-3xl);
   }
@@ -1390,10 +1532,11 @@ select.form-control {
 
   .hero {
     padding: var(--space-24) 0;
+    min-height: 58vh;
   }
 
   .hero__title {
-    font-size: var(--font-size-3xl);
+    font-size: var(--font-size-2xl);
   }
 
   .expertise,
@@ -1416,19 +1559,27 @@ select.form-control {
 }
 
 .page.active {
-  animation: fadeIn 0.3s ease-out;
+  display: block;
 }
 
-/* Customisation des boutons pour VELARD */
+.card,
+.feature__item,
+.service__item {
+  animation: fadeIn 0.45s ease-out;
+}
+
+/* Boutons VELARD */
 .btn--primary {
-  background: linear-gradient(135deg, var(--velard-blue), var(--velard-navy));
+  background: var(--velard-blue);
   border: none;
+  color: #ffffff;
 }
 
 .btn--primary:hover {
-  background: linear-gradient(135deg, var(--velard-navy), var(--velard-blue));
+  background: var(--velard-navy);
   transform: translateY(-1px);
   box-shadow: var(--shadow-md);
+  color: #ffffff;
 }
 
 .btn--outline {
@@ -1441,23 +1592,33 @@ select.form-control {
   color: var(--color-white);
 }
 
-/* États de focus améliorés */
-.form-control:focus {
-  border-color: var(--velard-blue);
-  box-shadow: 0 0 0 3px rgba(49, 130, 206, 0.1);
+.btn--outline.btn--on-dark {
+  border-color: rgba(255, 255, 255, 0.85);
+  color: #ffffff;
+  background: transparent;
 }
 
-/* Corrections pour le mode sombre */
+.btn--outline.btn--on-dark:hover {
+  background: rgba(255, 255, 255, 0.14);
+  color: #ffffff;
+  border-color: #ffffff;
+}
+
+.form-control:focus {
+  border-color: var(--velard-blue);
+  box-shadow: 0 0 0 3px rgba(54, 130, 174, 0.16);
+}
+
 @media (prefers-color-scheme: dark) {
   :root {
-    --velard-navy: #2d5a87;
-    --velard-blue: #63b3ed;
-    --velard-gray: #a0aec0;
+    --velard-navy: #102036;
+    --velard-blue: #3682ae;
+    --velard-gray: #5a6b7a;
   }
 }
 
 [data-color-scheme="dark"] {
-  --velard-navy: #2d5a87;
-  --velard-blue: #63b3ed;
-  --velard-gray: #a0aec0;
+  --velard-navy: #102036;
+  --velard-blue: #3682ae;
+  --velard-gray: #5a6b7a;
 }
