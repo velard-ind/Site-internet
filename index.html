@@ -1,10 +1,14 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="fr" data-color-scheme="light">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>VELARD industry - Bureau d'études conversion d'énergie AC-DC et DC-DC</title>
     <meta name="description" content="VELARD industry - Bureau d'études spécialisé dans la conversion d'énergie AC-DC et DC-DC pour les secteurs spatial, aéronautique et défense">
+    <link rel="icon" type="image/svg+xml" href="assets/logo/favicon.svg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
@@ -13,7 +17,9 @@
     <header class="header">
         <nav class="nav container">
             <div class="nav__brand">
-                <h2 class="nav__logo">VELARD industry</h2>
+                <a href="#accueil" class="nav__brand-link" data-page="accueil" aria-label="VELARD industry — Accueil">
+                    <img src="assets/logo/logo.svg" alt="VELARD industry" class="nav__logo-img">
+                </a>
             </div>
             <div class="nav__menu" id="nav-menu">
                 <ul class="nav__list">
@@ -48,12 +54,12 @@
             <section class="hero">
                 <div class="container">
                     <div class="hero__content">
-                        <h1 class="hero__title">VELARD industry</h1>
-                        <p class="hero__subtitle">Bureau d'études spécialisé dans la conversion d'énergie AC-DC et DC-DC</p>
-                        <p class="hero__description">Expert en solutions énergétiques pour les secteurs spatial, aéronautique et défense</p>
+                        <img src="assets/logo/logo-light.svg" alt="VELARD industry" class="hero__logo">
+                        <h1 class="hero__title">Bureau d'études spécialisé dans la conversion d'énergie AC-DC et DC-DC</h1>
+                        <p class="hero__description">Solutions de puissance pour les programmes spatial, aéronautique et défense</p>
                         <div class="hero__actions">
                             <button class="btn btn--primary btn--lg" data-page="contact">Demander un devis</button>
-                            <button class="btn btn--outline btn--lg" data-page="services">Nos services</button>
+                            <button class="btn btn--outline btn--lg btn--on-dark" data-page="services">Nos services</button>
                         </div>
                     </div>
                 </div>
@@ -65,6 +71,9 @@
                     <h2 class="section__title">Nos domaines d'expertise</h2>
                     <div class="expertise__grid">
                         <div class="expertise__card card">
+                            <div class="expertise__media">
+                                <img src="assets/images/spatial.jpg" alt="La Terre vue depuis l'orbite" width="800" height="500" loading="lazy">
+                            </div>
                             <div class="card__body">
                                 <div class="expertise__icon">
                                     <i class="fas fa-rocket"></i>
@@ -80,12 +89,15 @@
                             </div>
                         </div>
                         <div class="expertise__card card">
+                            <div class="expertise__media">
+                                <img src="assets/images/aeronautique.jpg" alt="Aile d'avion au-dessus des nuages" width="800" height="500" loading="lazy">
+                            </div>
                             <div class="card__body">
                                 <div class="expertise__icon">
                                     <i class="fas fa-plane"></i>
                                 </div>
                                 <h3>Aéronautique</h3>
-                                
+                                <p>Systèmes pour aviation civile et militaire respectant des standards élevés</p>
                                 <ul class="expertise__list">
                                     <li>Avionique</li>
                                     <li>Systèmes de bord</li>
@@ -95,6 +107,9 @@
                             </div>
                         </div>
                         <div class="expertise__card card">
+                            <div class="expertise__media">
+                                <img src="assets/images/defense.jpg" alt="Avion de chasse sur piste" width="800" height="500" loading="lazy">
+                            </div>
                             <div class="card__body">
                                 <div class="expertise__icon">
                                     <i class="fas fa-shield-alt"></i>
@@ -193,7 +208,7 @@
                         <div class="mission__grid">
                             <div class="mission__item">
                                 <h3>Excellence technique</h3>
-                                
+                                <p>Nous visons l'excellence à chaque étape, de l'étude de faisabilité à la qualification.</p>
                             </div>
                             <div class="mission__item">
                                 <h3>Innovation</h3>
@@ -207,7 +222,12 @@
                     </div>
 
                     <div class="about__section">
-                        </section>
+                        <h2>Notre engagement</h2>
+                        <p>Nous concevons des convertisseurs d'énergie adaptés aux contraintes des programmes spatiaux, aéronautiques et défense, avec une exigence constante de fiabilité et de traçabilité.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
 
         <!-- Page Services -->
         <section id="services" class="page">
@@ -275,7 +295,7 @@
                     <div class="service__detailed card">
                         <div class="card__body">
                             <h3><i class="fas fa-vial"></i> Tests et validation</h3>
-                            
+                            <p>Campagnes de tests et de qualification selon les exigences de vos programmes.</p>
                             <ul>
                                 <li>Tests de conformité EMC</li>
                                 <li>Tests environnementaux</li>
@@ -308,6 +328,9 @@
                 
                 <div class="sectors__content">
                     <div class="sector__card card">
+                        <div class="sector__media">
+                            <img src="assets/images/spatial.jpg" alt="La Terre vue depuis l'orbite" width="1000" height="600" loading="lazy">
+                        </div>
                         <div class="card__body">
                             <div class="sector__header">
                                 <i class="fas fa-rocket sector__icon"></i>
@@ -324,11 +347,17 @@
                             </ul>
 
                             <h4>Normes appliquées</h4>
-                            
+                            <div class="sector__standards">
+                                <span class="status status--info">ECSS</span>
+                                <span class="status status--info">MIL-STD</span>
+                            </div>
                         </div>
                     </div>
 
                     <div class="sector__card card">
+                        <div class="sector__media">
+                            <img src="assets/images/aeronautique.jpg" alt="Aile d'avion au-dessus des nuages" width="1000" height="600" loading="lazy">
+                        </div>
                         <div class="card__body">
                             <div class="sector__header">
                                 <i class="fas fa-plane sector__icon"></i>
@@ -353,6 +382,9 @@
                     </div>
 
                     <div class="sector__card card">
+                        <div class="sector__media">
+                            <img src="assets/images/defense.jpg" alt="Avion de chasse sur piste" width="1000" height="600" loading="lazy">
+                        </div>
                         <div class="card__body">
                             <div class="sector__header">
                                 <i class="fas fa-shield-alt sector__icon"></i>
@@ -482,7 +514,7 @@
         <div class="container">
             <div class="footer__content">
                 <div class="footer__info">
-                    <h3>VELARD industry</h3>
+                    <img src="assets/logo/logo-light.svg" alt="VELARD industry" class="footer__logo">
                     <p>Bureau d'études spécialisé dans la conversion d'énergie AC-DC et DC-DC</p>
                     <div class="footer__contact">
                         <p><i class="fas fa-envelope"></i> contact@velardindustry.com</p>
@@ -510,7 +542,8 @@
                 </div>
             </div>
             <div class="footer__bottom">
-                <p>&copy; 2025 VELARD industry. Tous droits réservés.</p>
+                <p>&copy; 2026 VELARD industry. Tous droits réservés.</p>
+                <p class="footer__credits">Photos : Unsplash (NASA, Ross Parmly, Muhammet Emir Şeker) — licence Unsplash.</p>
             </div>
         </div>
     </footer>
