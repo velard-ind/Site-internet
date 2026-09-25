@@ -367,6 +367,7 @@ document.addEventListener('DOMContentLoaded', function() {
             'apropos': 'À propos - VELARD industry',
             'services': 'Nos services - VELARD industry',
             'secteurs': 'Nos secteurs - VELARD industry',
+            'produits': 'Produits - VELARD industry',
             'contact': 'Contact - VELARD industry'
         };
 
