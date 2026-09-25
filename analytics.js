@@ -9,7 +9,7 @@
     var gtagLoaded = false;
 
     function hasValidGaId() {
-        return typeof GA_MEASUREMENT_ID === 'string' && /^G-[A-Z0-9]+$/i.test(GA_MEASUREMENT_ID) && GA_MEASUREMENT_ID !== 'G-XXXXXXXXXX';
+        return typeof GA_MEASUREMENT_ID === 'string' && /^G-[A-Z0-9]+$/i.test(GA_MEASUREMENT_ID) && GA_MEASUREMENT_ID !== 'G-BJSTFR0DQ7';
     }
 
     function getConsent() {
