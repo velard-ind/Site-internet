@@ -493,6 +493,75 @@
                         <button type="button" class="btn btn--primary" data-page="contact">Nous contacter</button>
                     </div>
                 </article>
+
+                <article class="product">
+                    <header class="product__header">
+                        <div class="product__identity">
+                            <p class="product__eyebrow">Aviation générale</p>
+                            <h2 class="product__name">Kit casque ANR aviation</h2>
+                            <p class="product__tagline">Solution d’adaptation pour transformer un casque ANR grand public (type Bose QC25/QC35/QC45) en casque d’aviation.</p>
+                        </div>
+                        <div class="product__status" role="status">
+                            <span class="product__status-badge">En cours de conception</span>
+                            <p class="product__status-text">La date d’ouverture des précommandes sera communiquée ultérieurement.</p>
+                        </div>
+                    </header>
+
+                    <figure class="product__visual">
+                        <picture>
+                            <source srcset="assets/images/ga-casque-anr.webp" type="image/webp">
+                            <img src="assets/images/ga-casque-anr.jpg" alt="Fiche produit kit casque ANR aviation VELARD industry : micro boom, module d’adaptation PTT et connectique PJ-055 / PJ-068" width="1024" height="682" loading="lazy">
+                        </picture>
+                        <figcaption class="product__caption">Vue d’ensemble du kit — spécifications préliminaires, susceptibles d’évoluer.</figcaption>
+                    </figure>
+
+                    <div class="product__body">
+                        <div class="product__intro">
+                            <h3>Votre casque ANR, prêt pour le ciel</h3>
+                            <p>Ce kit transforme un casque audio à réduction de bruit du commerce en casque d’aviation performant. Il combine un microphone boom modulaire, un module d’adaptation avec préamplification et bouton PTT intégré, et une connectique aviation standard PJ-055 / PJ-068 — sans modifier le casque ni compromettre l’ANR.</p>
+                        </div>
+
+                        <ul class="product__specs" aria-label="Caractéristiques principales">
+                            <li>
+                                <span class="product__spec-label">Compatibilité</span>
+                                <span class="product__spec-value">Bose QC25 / QC35 / QC45</span>
+                            </li>
+                            <li>
+                                <span class="product__spec-label">Microphone</span>
+                                <span class="product__spec-value">Boom électret aviation</span>
+                            </li>
+                            <li>
+                                <span class="product__spec-label">Module</span>
+                                <span class="product__spec-value">PTT intégré</span>
+                            </li>
+                            <li>
+                                <span class="product__spec-label">Connectique</span>
+                                <span class="product__spec-value">PJ-055 / PJ-068</span>
+                            </li>
+                            <li>
+                                <span class="product__spec-label">Installation</span>
+                                <span class="product__spec-value">Réversible</span>
+                            </li>
+                            <li>
+                                <span class="product__spec-label">Usage</span>
+                                <span class="product__spec-value">Aviation générale</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="product__notice">
+                        <div class="product__notice-icon" aria-hidden="true"><i class="fas fa-drafting-compass"></i></div>
+                        <div>
+                            <h3>Programme en développement</h3>
+                            <p>Ce kit est actuellement en phase de conception. Les performances, interfaces et délais indiqués à ce stade sont préliminaires. Nous ouvrirons prochainement une phase de précommandes ; la date exacte sera annoncée sur cette page et auprès de nos contacts.</p>
+                        </div>
+                    </div>
+
+                    <div class="product__cta">
+                        <p>Vous souhaitez être informé de l’ouverture des précommandes ?</p>
+                        <button type="button" class="btn btn--primary" data-page="contact">Nous contacter</button>
+                    </div>
+                </article>
             </div>
         </section>
 
@@ -814,12 +883,26 @@
                 </div>
             </div>
             <div class="footer__bottom">
-                <p>&copy; 2026 VELARD industry. Tous droits réservés.</p>
+                <p>&copy; 2026 VELARD industry. Tous droits réservés. <a href="#cookie-prefs" id="cookie-prefs" class="footer__privacy-link">Cookies &amp; mesure d’audience</a></p>
                 <p class="footer__credits">Photos : spatial — NASA / Unsplash ; aéronautique — Beechcraft V35 Bonanza VH-DEV (Bidgee, CC&nbsp;BY-SA&nbsp;3.0) ; défense — Rafale en vol (USAF / Staff Sgt.&nbsp;Sean Carnes, domaine public).</p>
             </div>
         </div>
     </footer>
 
+    <div id="cookie-banner" class="cookie-banner" role="dialog" aria-labelledby="cookie-banner-title" aria-describedby="cookie-banner-desc" hidden>
+        <div class="cookie-banner__inner">
+            <div class="cookie-banner__text">
+                <p id="cookie-banner-title" class="cookie-banner__title">Mesure d’audience</p>
+                <p id="cookie-banner-desc">Nous utilisons Google Analytics pour comprendre quelles pages sont consultées et améliorer le site. Aucune publicité n’est diffusée. Vous pouvez accepter ou refuser.</p>
+            </div>
+            <div class="cookie-banner__actions">
+                <button type="button" class="btn btn--outline btn--sm" id="cookie-refuse">Refuser</button>
+                <button type="button" class="btn btn--primary btn--sm" id="cookie-accept">Accepter</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="analytics.js"></script>
     <script src="app.js"></script>
 </body>
 </html>

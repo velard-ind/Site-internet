@@ -103,6 +103,13 @@ document.addEventListener('DOMContentLoaded', function() {
                 
                 if (targetPage) {
                     e.preventDefault();
+                    if (this.tagName === 'BUTTON' || this.classList.contains('btn')) {
+                        trackEvent('select_content', {
+                            content_type: 'cta',
+                            content_id: targetPage,
+                            link_text: (this.textContent || '').trim().slice(0, 80)
+                        });
+                    }
                     showPage(targetPage);
                     updateActiveNavLink(targetPage);
                     window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -254,6 +261,10 @@ document.addEventListener('DOMContentLoaded', function() {
                 }
                 showNotification('Votre demande a été envoyée à contact@velardindustry.com. Nous vous recontacterons rapidement.', 'success');
                 contactForm.reset();
+                trackEvent('generate_lead', {
+                    method: 'formsubmit',
+                    page: 'contact'
+                });
             })
             .catch(function() {
                 const subject = encodeURIComponent('Demande de devis — VELARD industry');
@@ -268,6 +279,10 @@ document.addEventListener('DOMContentLoaded', function() {
                 );
                 window.location.href = 'mailto:contact@velardindustry.com?subject=' + subject + '&body=' + body;
                 showNotification('Ouverture de votre messagerie pour envoyer la demande à contact@velardindustry.com.', 'success');
+                trackEvent('generate_lead', {
+                    method: 'mailto_fallback',
+                    page: 'contact'
+                });
             })
             .finally(function() {
                 submitButton.textContent = originalText;
@@ -376,10 +391,17 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
 
-    // Tracking des pages vues (simulation pour analytics)
+    // Tracking des pages vues (Google Analytics 4 via analytics.js)
     function trackPageView(pageId) {
-        // Dans un vrai projet, ceci enverrait les données à Google Analytics ou autre
-        console.log(`Page vue: ${pageId}`);
+        if (window.VelardAnalytics && typeof window.VelardAnalytics.trackPageView === 'function') {
+            window.VelardAnalytics.trackPageView(pageId);
+        }
+    }
+
+    function trackEvent(name, params) {
+        if (window.VelardAnalytics && typeof window.VelardAnalytics.trackEvent === 'function') {
+            window.VelardAnalytics.trackEvent(name, params);
+        }
     }
 
     // Gestion du redimensionnement de la fenêtre
