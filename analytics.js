@@ -2,14 +2,14 @@
 (function (window, document) {
     'use strict';
 
-    // Remplacez par votre ID de mesure GA4 (Admin Google Analytics > Flux de données > ID de mesure)
+    // ID de mesure GA4 — www.velardindustry.com
     var GA_MEASUREMENT_ID = 'G-BJSTFR0DQ7';
 
     var STORAGE_KEY = 'velard_analytics_consent';
     var gtagLoaded = false;
 
     function hasValidGaId() {
-        return typeof GA_MEASUREMENT_ID === 'string' && /^G-[A-Z0-9]+$/i.test(GA_MEASUREMENT_ID) && GA_MEASUREMENT_ID !== 'G-BJSTFR0DQ7';
+        return typeof GA_MEASUREMENT_ID === 'string' && /^G-[A-Z0-9]+$/i.test(GA_MEASUREMENT_ID) && GA_MEASUREMENT_ID !== 'G-XXXXXXXXXX';
     }
 
     function getConsent() {
